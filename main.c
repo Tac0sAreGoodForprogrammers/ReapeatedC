@@ -1,7 +1,11 @@
 #include <stdio.h>
 
 int main() {
-    int n = 100;  // Pre-set value of n
+    int n;
+
+    // Ask user for input
+    printf("Enter a number: ");
+    scanf("%d", &n);
 
     // Loop through numbers from 1 to n
     for (int i = 1; i <= n; i++) {

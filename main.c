@@ -1,21 +1,34 @@
 #include <stdio.h>
 
-int main() {
-    int n;
-
-    // Ask user for input
-    printf("Enter a number: ");
-    scanf("%d", &n);
-
-    // Loop through numbers from 1 to n
-    for (int i = 1; i <= n; i++) {
-        // Check if the number is even or odd
-        if (i % 2 == 0) {
-            printf("%d is even\n", i);
-        } else {
-            printf("%d is odd\n", i);
+void prime_factors(int n) {
+    printf("Prime factors of %d: ", n);
+    
+    // Divide out all 2s
+    while (n % 2 == 0) {
+        printf("%d ", 2);
+        n = n / 2;
+    }
+    
+    // Divide by odd numbers from 3 upwards
+    for (int i = 3; i * i <= n; i += 2) {
+        while (n % i == 0) {
+            printf("%d ", i);
+            n = n / i;
         }
     }
+    
+    // If n is a prime number greater than 2
+    if (n > 2) {
+        printf("%d ", n);
+    }
+    
+    printf("\n");
+}
 
+int main() {
+    int number;
+    printf("Enter a number: ");
+    scanf("%d", &number);
+    prime_factors(number);
     return 0;
 }

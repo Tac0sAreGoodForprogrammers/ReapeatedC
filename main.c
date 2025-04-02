@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 void prime_factors(int n) {
     printf("Prime factors of %d: ", n);
@@ -9,8 +10,9 @@ void prime_factors(int n) {
         n = n / 2;
     }
     
-    // Divide by odd numbers from 3 upwards
-    for (int i = 3; i * i <= n; i += 2) {
+    // Check odd numbers from 3 upwards, only up to sqrt(n)
+    int limit = (int)sqrt(n);
+    for (int i = 3; i <= limit; i += 2) {
         while (n % i == 0) {
             printf("%d ", i);
             n = n / i;
